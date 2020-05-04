@@ -42,12 +42,14 @@ $: selected = selected  < 4 ? selected : 0;
 		border-radius: 10px;
 		background: #bbb;
 		z-index: 1;
+		font-size: 4vw;
 	}
 
 	@media screen and (min-width: 600px) {
 		div.chooser {
 			padding: 1.5rem;
 			border: 0.25rem solid #333;
+			font-size: 24px;
 		}
 	}
 

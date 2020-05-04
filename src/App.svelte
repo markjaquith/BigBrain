@@ -117,14 +117,14 @@
 		grid-column-gap: 2rem;
 		grid-row-gap: 4.5vw;
 		grid-template-columns: 1fr 10fr 1fr;
-		padding: 2rem;
+		padding: 3vw;
 		justify-items: center;
 		justify-content: center;
 		align-items: center;
 		background: #aaa;
 		margin: 0 auto;
 		border-radius: 10px;
-		width: 98vw;
+		width: 97vw;
 		box-sizing: border-box;
 		max-width: 600px;
 	}
@@ -132,6 +132,7 @@
 	@media screen and (min-width: 600px) {
 		main {
 			grid-row-gap: 2rem;
+			padding: 1rem;
 		}
 	}
 	
