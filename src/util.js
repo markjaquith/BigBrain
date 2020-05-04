@@ -15,22 +15,25 @@ export function calculateScores(code, guesses) {
 }
 
 function calculateScore(code, guess) {
-	const tempCode = [...code];
+	const workingCode = [...code];
+	const workingGuess = [...guess];
 	const score = [];
 
 	// Scoring black pins.
 	for (let position = 0; position < 4; position++) {
-		if (guess[position] === tempCode[position]) {
+		if (workingGuess[position] === workingCode[position]) {
 			score.push(2);
-			tempCode[position] = null;
+			workingCode[position] = null;
+			workingGuess[position] = null;
 		}
 	}
 
 	// Scoring white pins.
 	for (let position = 0; position < 4; position++) {
-		if (tempCode.includes(guess[position])) {
+		if (workingGuess[position] !== null && workingCode.includes(workingGuess[position])) {
 			score.push(1);
-			tempCode[tempCode.indexOf(guess[position])] = null;
+			workingCode[workingCode.indexOf(workingGuess[position])] = null;
+			workingGuess[position] = null;
 		}
 	}
 
