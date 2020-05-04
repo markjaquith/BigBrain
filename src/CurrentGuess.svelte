@@ -1,0 +1,66 @@
+<script>
+import { createEventDispatcher } from 'svelte';
+import Guess from './Guess.svelte';
+const dispatch = createEventDispatcher();
+const colors = [0, 1, 2, 3, 4, 5];
+let guess = [0, 0, 0, 0];	
+let selected = 0;
+$: selected = selected  < 4 ? selected : 0;
+</script>
+
+<main>
+	<Guess {guess} {selected} on:select={({ detail: position }) => selected = position} />
+</main>
+
+<button on:click={() => {
+	dispatch('submit', guess);
+	selected = 0;
+}}>
+✅
+</button>
+
+<div class="chooser">
+	{#each colors as peg}
+		<div class={`color-${peg} color`} on:click={() => {
+			guess[selected] = peg;
+			selected++;
+		}}>
+		</div>
+	{/each}
+</div>
+
+<style>
+	div.chooser {
+		grid-column: 2;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 1.5vw;
+		border: 0.75vw solid #333;
+		border-radius: 10px;
+		background: #bbb;
+		z-index: 1;
+	}
+
+	@media screen and (min-width: 600px) {
+		div.chooser {
+			padding: 0.5rem;
+			border: 0.25rem solid #333;
+		}
+	}
+
+	div.chooser > div ~ div {
+		margin-left: 0.5rem;
+	}
+
+	main {
+		grid-column: 2;
+	}
+
+	button {
+		grid-column: 3;
+		justify-self: start;
+		background: white;
+		border-radius: 5px;
+		margin: 0;
+	}
+</style>
