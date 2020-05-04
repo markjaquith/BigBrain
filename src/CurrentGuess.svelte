@@ -32,9 +32,12 @@ $: selected = selected  < 4 ? selected : 0;
 <style>
 	div.chooser {
 		grid-column: 2;
-		display: flex;
-		flex-wrap: wrap;
-		padding: 1.5vw;
+		width: 100%;
+		display: grid;
+		grid-gap: 2rem;
+		grid-template-columns: 1fr 1fr 1fr;
+		justify-items: center;
+		padding: 5vw;
 		border: 0.75vw solid #333;
 		border-radius: 10px;
 		background: #bbb;
@@ -43,13 +46,9 @@ $: selected = selected  < 4 ? selected : 0;
 
 	@media screen and (min-width: 600px) {
 		div.chooser {
-			padding: 0.5rem;
+			padding: 1.5rem;
 			border: 0.25rem solid #333;
 		}
-	}
-
-	div.chooser > div ~ div {
-		margin-left: 0.5rem;
 	}
 
 	main {
@@ -62,5 +61,6 @@ $: selected = selected  < 4 ? selected : 0;
 		background: white;
 		border-radius: 5px;
 		margin: 0;
+		width: 100%;
 	}
 </style>
