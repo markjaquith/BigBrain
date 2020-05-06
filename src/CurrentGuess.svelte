@@ -43,6 +43,7 @@ $: selected = selected  < 4 ? selected : 0;
 		background: #bbb;
 		z-index: 1;
 		font-size: 4vw;
+		box-shadow: rgba(0,0,0,0.4) 0 5px 5px;
 	}
 
 	@media screen and (min-width: 600px) {
@@ -64,5 +65,6 @@ $: selected = selected  < 4 ? selected : 0;
 		border-radius: 5px;
 		margin: 0;
 		width: 100%;
+		box-shadow: rgba(0,0,0,0.4) 0 5px 5px;
 	}
 </style>

@@ -24,6 +24,7 @@
 </script>
 
 <h1>BigBrain</h1>
+<p class="credit">Created by Mark and Atticus Jaquith</p>
 
 <main>
 	{#each guesses as guess, turn}
@@ -38,7 +39,14 @@
 
 	{#if stillPlaying}
 		<CurrentGuess on:submit={event => addGuess(event.detail)} />
+	{:else if lost}
+		<div class="number">🔑</div>
+		<div class="guess">
+			<Guess guess={code} />
+		</div>
 	{/if}
+
+
 
 	{#if won}
 		<h2>YOU WON! 🤓</h2>
@@ -57,6 +65,11 @@
 		border: 3px solid transparent;
 		position: relative;
 		font-size: 75%;
+		box-shadow: rgba(0,0,0,0.4) 0 0 10px;
+	}
+
+	:global(.color:active) {
+		box-shadow: rgba(0,0,0,0.8) 0 0 10px;
 	}
 
 	:global(.color-0) {
@@ -117,22 +130,24 @@
 		grid-column-gap: 2rem;
 		grid-row-gap: 4.5vw;
 		grid-template-columns: 1fr 10fr 1fr;
-		padding: 3vw;
+		padding: 5vw 3vw;
 		justify-items: center;
 		justify-content: center;
 		align-items: center;
 		background: #aaa;
 		margin: 0 auto;
-		border-radius: 10px;
-		width: 97vw;
+		width: 100vw;
 		box-sizing: border-box;
 		max-width: 600px;
+		box-shadow: rgba(0,0,0,0.2) 0 10px 10px;
 	}
 
 	@media screen and (min-width: 600px) {
 		main {
 			grid-row-gap: 2rem;
-			padding: 1rem;
+			padding: 3rem 1rem;
+			border-radius: 10px;
+			width: 97vw;
 		}
 	}
 	
@@ -146,14 +161,21 @@
 		justify-content: center;
 		align-content: center;
 		border-radius: 4px;
+		grid-column: 1;
 	}
 
 	.score {
 		justify-self: start;
+		grid-column: 3;
+	}
+
+	.guess {
+		grid-column: 2;
 	}
 	
 	h1 {
 		text-align: center;
+		margin-bottom: 0;
 	}
 
 	h2 {
@@ -167,5 +189,16 @@
 		background: white;
 		border-radius: 5px;
 		margin: 0;
+		width: 100%;
+		height: 4rem;
+		box-shadow: rgba(0,0,0,0.1) 0 0 20px;
+	}
+
+	p.credit {
+		font-size: 70%;
+		text-align: center;
+		margin-top: 0.25rem;
+		margin-bottom: 2rem;
+		color: #999;
 	}
 </style>

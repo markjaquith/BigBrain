@@ -1,93 +1,33 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# BigBrain
 
----
+BigBrain is code-guessing game.
 
-# svelte app
+You can play it at: https://playbigbrain.netlify.com/
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+## Objective
+You are trying to guess a 4-color code that the game has generated. After submitting an attempt, your guess will be scored as follows:
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+* One black pin for every color that is in the correct position.
+* One white pin for each color that exists in the code, but in a different position.
+* Black pins override white... so if you guess blue in position one, but there are blues in positions one and two in the code, you'll just get a black pin.
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
+Remember that there may between zero and four of each of the six potential colors in the code.
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+You have ten attempts to guess the code!
 
+## Installation
 
-## Get started
+1. Make sure `yarn` is installed on your system.
+2. Install packages: `yarn`.
+3. Compile: `yarn build`.
+4. Run server: `yarn sirv`.
 
-Install the dependencies...
+## Credits
 
-```bash
-cd svelte-app
-npm install
-```
+Atticus Jaquith helped me with playtesting and UI feedback.
 
-...then start [Rollup](https://rollupjs.org):
+## Tools
 
-```bash
-npm run dev
-```
+Built with [Svelte 3][svelte].
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
-```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
-
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
-
-## Deploying to the web
-
-### With [now](https://zeit.co/now)
-
-Install `now` if you haven't already:
-
-```bash
-npm install -g now
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-now deploy --name my-project
-```
-
-As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
+[svelte]: https://svelte.dev/
