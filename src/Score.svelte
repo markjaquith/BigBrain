@@ -24,6 +24,7 @@ export let score = [];
 		justify-content: center;
 		align-content: center;
 		border-radius: 50%;
+		box-shadow: rgba(0,0,0,0.4) 0 0 5px;
 	}
 
 	div.score-2 {

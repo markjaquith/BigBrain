@@ -2,6 +2,7 @@
 	import Guess from './Guess.svelte';
 	import Score from './Score.svelte';
 	import CurrentGuess from './CurrentGuess.svelte';
+	import HowToPlay from './HowToPlay.svelte';
 	import { calculateScores, makeRandomCode } from './util';
 	
 	let code = makeRandomCode();
@@ -25,6 +26,8 @@
 
 <h1>BigBrain</h1>
 <p class="credit">Created by Mark and Atticus Jaquith</p>
+
+<HowToPlay />
 
 <main>
 	{#each guesses as guess, turn}
@@ -113,6 +116,7 @@
 		margin: 0;
 		padding: 0;
 		font-size: 3vw;
+		text-align: center;
 	}
 
 	@media screen and (min-width: 600px) {
@@ -162,6 +166,7 @@
 		align-content: center;
 		border-radius: 4px;
 		grid-column: 1;
+		box-shadow: rgba(0,0,0,0.4) 0 0 5px;
 	}
 
 	.score {
@@ -198,7 +203,6 @@
 		font-size: 70%;
 		text-align: center;
 		margin-top: 0.25rem;
-		margin-bottom: 2rem;
 		color: #999;
 	}
 </style>

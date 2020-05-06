@@ -61,10 +61,9 @@ $: selected = selected  < 4 ? selected : 0;
 	button {
 		grid-column: 3;
 		justify-self: start;
-		background: white;
 		border-radius: 5px;
 		margin: 0;
 		width: 100%;
-		box-shadow: rgba(0,0,0,0.4) 0 5px 5px;
+		box-shadow: rgba(0,0,0,0.4) 0 0 5px;
 	}
 </style>
