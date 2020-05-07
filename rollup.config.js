@@ -37,16 +37,26 @@ export default {
 		}),
 		commonjs(),
 
+		// In dev mode, call `npm run start` once
+		// the bundle has been generated
+		!production && serve(),
+
+		// Watch the `public` directory and refresh the
+		// browser on changes when not in production
+		!production && livereload("public"),
+
 		// compile to good old IE11 compatible ES5
 		babel({
 			extensions: [".js", ".mjs", ".html", ".svelte"],
 			runtimeHelpers: true,
-			exclude: ["node_modules/@babel/**"],
+			exclude: ["node_modules/@babel/**", "node_modules/core-js/**"],
 			presets: [
 				[
 					"@babel/preset-env",
 					{
-						targets: "> 0.25%, not dead",
+						targets: "> 0.25%, not dead, safari > 5",
+						useBuiltIns: "usage",
+						corejs: 3,
 					},
 				],
 			],
@@ -60,14 +70,6 @@ export default {
 				],
 			],
 		}),
-
-		// In dev mode, call `npm run start` once
-		// the bundle has been generated
-		!production && serve(),
-
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
-		!production && livereload("public"),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
